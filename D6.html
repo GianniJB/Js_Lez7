@@ -81,117 +81,120 @@
     </footer>
     <script>
       /* ESERCIZIO 1
-         Scrivi una funzione per cambiare il titolo della pagina in qualcos'altro
-      */
+              Scrivi una funzione per cambiare il titolo della pagina in qualcos'altro
+           */
       //TRAVERSING
-      let pageTitle = document.querySelector("div > h1"); //seleziona titolo
-      console.log("TRAVERSING Titolo:", pageTitle); //OK
+      /* let pageTitle = document.querySelector("div > h1"); //seleziona titolo
+           console.log("TRAVERSING Titolo:", pageTitle); //OK */
 
       const changeTitle = function (parameterTitle) {
-        // credo funzione con parametro di inserimento
-        let pageTitle = document.querySelector("div > h1"); //seleziono titolo
-        pageTitle = pageTitle.innerText = parameterTitle; ///modifico il testo?ricorda sempre di scrivere in quale variabile
-        return pageTitle;
+        // creo funzione con parametro di inserimento
+        let pageTitle = document.querySelector("div > h1"); //seleziono titolo, lo metto in una variabile
+        pageTitle = pageTitle.innerText = parameterTitle; ///modifico il testo?perchè funziona solo in var?
+        return pageTitle; //c'è bisogno di un return?
       };
 
-      changeTitle("EPIDCODE"); //richiamo funzione
+      changeTitle("EPIDCODE"); //richiamo funzione. perchè è gia in una variabile?
+      console.log("Esercizio 1");
       console.log(changeTitle("EPICODE")); //problema sto dando per scontato che verrà inserito con le ""
 
       /* ESERCIZIO 2
-         Scrivi una funzione per aggiungere al titolo della pagina una classe "myHeading"
-      */
+              Scrivi una funzione per aggiungere al titolo della pagina una classe "myHeading"
+           */
 
       const addClassToTitle = function () {
-        const titlePageWithElmnt = document.getElementsByTagName("h1")[0];
+        const titlePageWithElmnt = document.getElementsByTagName("h1")[0]; ///specifico [0] per evitare che prenda altri h1
         titlePageWithElmnt.classList.add("myHeading");
         return titlePageWithElmnt;
       };
-
-      console.log("assegna classe:", addClassToTitle());
+      console.log("Esercizio 2");
+      console.log("Assegna nuova classe:", addClassToTitle());
 
       /* ESERCIZIO 3
-         Scrivi una funzione che cambi il testo dei p figli di un div
-        */
+              Scrivi una funzione che cambi il testo dei p figli di un div
+             */
 
       const changePcontent = function (textPar) {
-        let divPar = document.querySelectorAll("div > p"); // seleziono i p
-        divPar = divPar.innerText = textPar; /// perche se non creo prima la var divPar mi scrive anche innerText?
-        return divPar;
+        let divPs = document.querySelectorAll("div > p"); // seleziono i p
+        divPs.forEach(function (currentPar) {
+          //uso forEach per ciclare i paragrafi
+          currentPar.innerText = textPar; //ogni iterazione crea l'input textPar
+        }); ///
+        return divPs;
       };
 
-      console.log(changePcontent("questo è il nuovo paragrafo"));
+      console.log(changePcontent("Questi sono i nuovi paragrafi"));
 
       /* ESERCIZIO 4
-         Scrivi una funzione che cambi la proprietà href di ogni link (tranne quello nel footer) con il valore https://www.google.com
-        */
+              Scrivi una funzione che cambi la proprietà href di ogni link (tranne quello nel footer) con il valore https://www.google.com
+             */
 
       const changeUrls = function () {};
 
       /* ESERCIZIO 5
-         Scrivi una funzione che aggiunga un nuovo elemento lista alla seconda lista non ordinata
-      */
+              Scrivi una funzione che aggiunga un nuovo elemento lista alla seconda lista non ordinata
+           */
 
       const addToTheSecond = function () {
-        let newListelmnt = document.createElement("li");
-        list2.innerText = "4th";
-        let list2 = document.getElementById("secondList");
+        let newListelmnt = document.createElement("li"); //creo il nuovo elemento. DENTRO O FUORI DALLA FUNZIONE?
+        let list2 = document.getElementById("secondList"); //accedo alla seconda ul
+        list2 = list2[3].innerText = "4th"; // ho scritto nella quarta lista?
         list2.appendChild(newListelmnt);
       };
-
       console.log(addToTheSecond());
 
       /* ESERCIZIO 6
-         Scrivi una funzione che aggiunga un paragrafo al primo div
-      */
+              Scrivi una funzione che aggiunga un paragrafo al primo div
+           */
 
       const addParagraph = function () {};
 
       /* ESERCIZIO 7
-         Scrivi una funzione che faccia scomparire la prima lista non ordinata
-      */
+              Scrivi una funzione che faccia scomparire la prima lista non ordinata
+           */
 
       const hideFirstUl = function () {};
 
       /* ESERCIZIO 8
-         Scrivi una funzione che renda verde il background di ogni lista non ordinata
-        */
+              Scrivi una funzione che renda verde il background di ogni lista non ordinata
+             */
 
       const paintItGreen = function () {};
 
       /* ESERCIZIO 9
-         Scrivi una funzione che rimuova l'ultima lettera dall'h1 ogni volta che l'utente lo clicca
-        */
+              Scrivi una funzione che rimuova l'ultima lettera dall'h1 ogni volta che l'utente lo clicca
+             */
 
       const makeItClickable = function () {};
 
       /* ESERCIZIO 10
-         Crea una funzione che, al click sul footer, riveli l'URL del link interno come contenuto di un alert()
-        */
+              Crea una funzione che, al click sul footer, riveli l'URL del link interno come contenuto di un alert()
+             */
 
       const revealFooterLink = function () {};
 
       /* ESERCIZIO 11
-         Crea una funzione che crei una tabella nell'elemento con id "tableArea".
-         La tabella avrà 5 elementi e questa struttura: immagine, nome prodotto, quantità, prezzo
-      */
+              Crea una funzione che crei una tabella nell'elemento con id "tableArea".
+              La tabella avrà 5 elementi e questa struttura: immagine, nome prodotto, quantità, prezzo
+           */
 
       const generateTable = function () {};
 
       /* ESERCIZIO 12
-         Crea una funzione che aggiunga una riga alla tabella precedentemente creata e fornisca i dati necessari come parametri
-      */
+              Crea una funzione che aggiunga una riga alla tabella precedentemente creata e fornisca i dati necessari come parametri
+           */
 
       const addRow = function () {};
 
       /* ESERCIZIO 14
-        Crea una funzione che nasconda le immagini della tabella quando eseguita
-      */
+             Crea una funzione che nasconda le immagini della tabella quando eseguita
+           */
 
       const hideAllImages = function () {};
 
       /* EXTRA ESERCIZIO 15
-        Crea una funzione che cambi il colore del h2 con id "changeMyColor" con un colore random ad ogni click ricevuto
-      */
+             Crea una funzione che cambi il colore del h2 con id "changeMyColor" con un colore random ad ogni click ricevuto
+           */
 
       const changeColorWithRandom = function () {};
     </script>
